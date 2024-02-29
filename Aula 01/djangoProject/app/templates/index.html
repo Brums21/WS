@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IBM calculator</title>
+</head>
+<body>
+    <h1>IBM Calculator</h1>
+    <form action="." method="post">
+        {% csrf_token %}
+        <p>Peso (kg): <input type="text" step="0.01" name="peso"></p>
+        <p>Altura (m): <input type="text" step="0.01" name="altura"></p>
+        <p><input type="submit" value="Enviar"/> </p>
+    </form>
+
+    {%  if ibm  %}
+        <p>IBM é: {{ ibm }}</p>
+        <p>{{ paramIBM }}</p>
+    {% endif %}
+    {% if errorConversion %}
+        <p>Parametros inválidos. Tente de novo.</p>
+    {% endif %}
+
+</body>
+</html>
